@@ -15,15 +15,18 @@ class Attendee
 
   # rubocop:disable Naming/PredicateName
   def has_pass?
+    return @pass_id != nil
     raise 'Please implement the Attendee#haspass? method'
   end
   # rubocop:enable Naming/PredicateName
 
   def fits_ride?(ride_minimum_height)
+    return @height >= ride_minimum_height
     raise 'Please implement the Attendee#fits_ride? method'
   end
 
   def allowed_to_ride?(ride_minimum_height)
+    return @height >= ride_minimum_height && @pass_id != nil
     raise 'Please implement the Attendee#allowed_to_ride? method'
   end
 end
